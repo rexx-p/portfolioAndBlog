@@ -1,31 +1,24 @@
+import type { Metadata } from "next"
 import "./globals.css"
-import { Inter } from "next/font/google"
-import type React from "react"
-import { ThemeProvider } from "@/components/theme-provider"
-import { ModeToggle } from "@/components/mode-toggle"
+import { EnhancedThemeProvider } from "./components/enhanced-theme-provider"
+import { ModeToggle } from "./components/mode-toggle"
+import { inter, poppins, montserrat, roboto, playfair, lato } from "./fonts"
 
-const inter = Inter({ subsets: ["latin"] })
-
-export const metadata = {
+export const metadata: Metadata = {
   title: "Rajesh Kumar - Senior Software Engineer",
-  description: "Portfolio of Rajesh Kumar, a Senior Software Engineer specializing in AWS and MERN stack development.",
-    generator: 'v0.dev'
+  description: "Portfolio of Rajesh Kumar, a Senior Software Engineer with expertise in AWS, MERN stack, and microservices architecture.",
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <body className={`${inter.variable} ${poppins.variable} ${montserrat.variable} ${roboto.variable} ${playfair.variable} ${lato.variable}`}>
+        <EnhancedThemeProvider>
           <div className="fixed top-4 right-4 z-50">
             <ModeToggle />
           </div>
           {children}
-        </ThemeProvider>
+        </EnhancedThemeProvider>
       </body>
     </html>
   )
