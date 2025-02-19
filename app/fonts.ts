@@ -1,3 +1,4 @@
+import localFont from 'next/font/local'
 import { Inter, Poppins, Montserrat, Roboto, Playfair_Display, Lato } from "next/font/google"
 
 export const inter = Inter({
@@ -37,4 +38,9 @@ export const lato = Lato({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-lato",
+})
+
+export const myFont = localFont({
+  src: '../public/font/my-font.woff2',
+  variable: '--font-custom'
 }) 
